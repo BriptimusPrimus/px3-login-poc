@@ -19,7 +19,11 @@
             finishedHeadline: 'Welcome!'
         },
         section: 'login',
-        loginContext:  'inputEmail'
+        loginContext:  'inputPassword',
+        profile: {
+            displayName: 'Johnny Cage',
+            email: 'abc@px3.com'
+        }
     }
 
     window.app = window.app || {};

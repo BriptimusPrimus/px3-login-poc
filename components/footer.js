@@ -99,11 +99,11 @@ app.components.Footer = function Footer() {
             'class': 'footer',
             style: footerStyle
         }, [
-            app.$$$.dom(
-                'ul', {
+            app.$$$.dom('ul', {
                     'class': 'footerGroup',
                     style: ulStyle
-                }, footerLinks
+                },
+                footerLinks
             )
         ]
     );

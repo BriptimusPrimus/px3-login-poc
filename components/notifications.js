@@ -12,13 +12,14 @@ app.components = app.components || {};
 app.components.Notifications = function Notifications(props) {
 
     function printText() {
-        if (props && props.notifications) {
+        if (props && props.message) {
             return app.$$$.dom(
                 'p', {
-                    'class': 'notification notification-' + props.notifications.type,
+                    'class': 'notification notification-' + props.type,
                     role: 'alert',
-                    style: 'background-color: #F00;border: 1px solid #666;'
-                }, props.notifications.message
+                    style: 'background-color: #F00;border: 1px solid #666;text-align: center'
+                },
+                props.message
             );
         }
 

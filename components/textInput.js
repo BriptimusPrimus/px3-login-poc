@@ -44,6 +44,10 @@ app.components.TextInput = function TextInput(props) {
             placeholder: props.placeholder
         };
 
+        if (props.value) {
+            attributes.value = props.value
+        }
+
         if (props.required) {
             attributes.required = 'required';
             attributes['aria-required'] = 'required';
@@ -59,7 +63,7 @@ app.components.TextInput = function TextInput(props) {
         );
     }
 
-    function errrorMsg() {
+    function errorMsg() {
         var errorMsgs = [];
 
         if (props.emptyErrorMsg) {
@@ -82,20 +86,27 @@ app.components.TextInput = function TextInput(props) {
             return;
         }
         
-        return dom('div', {
-            id: props.id + 'ErrorMessage',
-            'class': 'errorMessage'
-        }, errorMsgs);
+        return dom(
+            'div', {
+                id: props.id + 'ErrorMessage',
+                'class': 'errorMessage'
+            }, errorMsgs
+        );
     }
 
-    return dom('div', {
-        id: props.name + 'div',
-        'class': 'textInput'
-    }, [
-        dom('div', {'class': 'fieldWrapper'}, [
-            label(),
-            input()
-        ]),
-        errrorMsg()
-    ]);
+    return dom(
+        'div', {
+            id: props.name + 'div',
+            'class': 'textInput'
+        }, [
+            dom('div', {
+                    'class': 'fieldWrapper'
+                }, [
+                    label(),
+                    input()
+                ]
+            ),
+            errorMsg()
+        ]
+    );
 }

@@ -18,15 +18,17 @@ app.components.BtnNext = function BtnNext(props) {
             'class': 'actions'
         }, [
             dom('button', {
-                id: 'btnNext',
-                'class': 'button',
-                type: 'submit',
-                events: {
-                    click: props && props.onClick
+                    id: 'btnNext',
+                    'class': 'button',
+                    type: 'submit',
+                    events: {
+                        click: props && props.onClick
+                    },
+                    name: 'btnNext',
+                    value: 'next'
                 },
-                name: 'btnNext',
-                value: 'next'
-            }, 'Next')
+                props.content
+            )
         ]
     );
 }

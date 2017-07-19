@@ -9,8 +9,10 @@ app.components = app.components || {};
 
 app.components.SignUp = function SignUp(props) {
     return app.$$$.dom('a', {
-        id: 'createAccount',
-        href: '/',
-        'class': 'button secondary'
-    }, 'Sign Up');
+            id: 'createAccount',
+            href: '/',
+            'class': 'button secondary'
+        },
+        props.content.signup
+    );
 }

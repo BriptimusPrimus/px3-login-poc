@@ -23,22 +23,27 @@ app.components.Profile = function Profile(props) {
             id: 'profile',
             'class': 'profile',
         }, [
-            dom(
-                'p', {'class': 'displayName'}, props.displayName
+            dom('p', {
+                    'class': 'displayName'
+                },
+                props.displayName
             ),
-            dom(
-                'p', {
+            dom('p', {
                     'class': 'profileId'
                 }, [
-                    dom(
-                        'span', {'class': 'userId'}, props.email
+                    dom('span', {
+                            'class': 'userId'
+                        },
+                        props.email
                     ),
-                    dom(
-                        'a', {
+                    dom('a', {
                             'class': 'notYouLink',
-                            href: '/'
+                            href: '/',
+                            events: {
+                                click: props && props.onNotYouClick
+                            }
                         }, 
-                        'Not you?'
+                        props.content.notYou
                     )
                 ]
             )

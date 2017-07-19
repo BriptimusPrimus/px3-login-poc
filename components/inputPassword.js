@@ -13,13 +13,17 @@ app.components = app.components || {};
 
 app.components.InputPassword = function InputPassword(props) {
     var dom = app.$$$.dom;
-    var profile = props && props.state && props.state.profile;
 
     return dom(
         'div', {
             id: 'inputPassword'
         }, [
-            app.components.Profile(profile),
+            app.components.Profile({
+                displayName: props.profile.displayName,
+                email: props.profile.email,
+                onNotYouClick: props.onNotYouClick,
+                content: props.content
+            }),
             dom(
                 'div', {
                     id: 'passwordSection'
@@ -28,15 +32,18 @@ app.components.InputPassword = function InputPassword(props) {
                         id: 'password',
                         name: 'login_password',
                         type: 'password',
-                        className: 'hasHelp  validateEmpty',
+                        className: 'hasHelp validateEmpty',
                         required: true,
                         autocomplete: 'off',
-                        placeholder: 'Password',
-                        emptyErrorMsg: 'Required'
+                        placeholder: props.content.password,
+                        emptyErrorMsg: props.content.passwordRequired
                     })                    
                 ]
             ),
-            app.components.BtnNext()
+            app.components.BtnNext({
+                onClick: props.onClickNext,
+                content: props.content.loginButton
+            })
         ]
     );
 }

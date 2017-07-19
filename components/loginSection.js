@@ -7,17 +7,21 @@ window.app = window.app || {};
 app.components = app.components || {};
 
 app.components.LoginSection = function LoginSection(props) {
-    var state = props.state;
+    if (props.section !== 'login') {
+        return;
+    }
+
+    props.action = '/login-endpoint';
 
     return app.$$$.dom(
         'section', {
             id: 'login',
             'class': 'login'
         }, [
-            app.components.Header(),
-            app.components.Notifications(),
+            app.components.Header({content: props.content}),
+            app.components.Notifications(props.notifications),
             app.components.LoginForm(props),
-            app.components.SignUp()
+            app.components.SignUp({content: props.content})
         ]
     );
 };
