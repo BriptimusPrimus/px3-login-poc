@@ -15,7 +15,7 @@ app.components.LoginSection = function LoginSection(props) {
             'class': 'login'
         }, [
             app.components.Header(),
-            app.components.Notifications(),
+            app.components.Notifications(props.notifications),
             app.components.LoginForm(props),
             app.components.SignUp()
         ]

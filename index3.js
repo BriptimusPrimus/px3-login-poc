@@ -5,7 +5,11 @@
     var initialState = {
         content: {},
         section: 'login',
-        loginContext:  'inputEmail'
+        loginContext:  'implicitEmail',
+        profile: {
+            displayName: 'Sonya Blade',
+            email: 'pwdless@px3.com'
+        }
     }
 
     window.app = window.app || {};

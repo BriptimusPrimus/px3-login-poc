@@ -29,7 +29,8 @@ app.components.InputEmail = function InputEmail(props) {
                         autocomplete: 'off',
                         placeholder: 'Email',
                         emptyErrorMsg: 'Required',
-                        invalidErrorMsg: 'That email format is not right'
+                        invalidErrorMsg: 'That email format is not right',
+                        value: props.profile && props.profile.email
                     })
                 ]
             ),

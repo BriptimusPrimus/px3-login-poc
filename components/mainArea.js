@@ -17,6 +17,10 @@ app.components.MainArea = function MainArea(props) {
 
             // Update the state with new data in the response
             if (response.state && typeof dispatch === 'function') {
+                // Override notifications
+                if (!response.state.notifications) {
+                    response.state.notifications = null;
+                }
                 dispatch({
                     state: response.state
                 }, true);
@@ -51,6 +55,7 @@ app.components.MainArea = function MainArea(props) {
             content: state.content,
             loginContext: state.loginContext,
             profile: state.profile,
+            notifications: state.notifications,
             onClickNext: clickNextHandler
         }
     }
@@ -80,7 +85,8 @@ app.components.MainArea = function MainArea(props) {
     // trigger state changes by dispatching actions.
     dispatch = app.$$$.register({
         component: component,
-        renderingFn: render
+        renderingFn: render,
+        state: props.initialState
     });
 
     // All component functions (stateless or stateful)

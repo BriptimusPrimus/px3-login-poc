@@ -44,6 +44,10 @@ app.components.TextInput = function TextInput(props) {
             placeholder: props.placeholder
         };
 
+        if (props.value) {
+            attributes.value = props.value
+        }
+
         if (props.required) {
             attributes.required = 'required';
             attributes['aria-required'] = 'required';

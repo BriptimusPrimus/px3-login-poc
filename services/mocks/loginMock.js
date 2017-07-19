@@ -16,7 +16,7 @@ app.services.mocks = app.services.mocks || {};
                     profile: {
                         displayName: 'Johnny Cage',
                         email: 'abc@px3.com'
-                    }                        
+                    }
                 };
             }
 
@@ -34,8 +34,12 @@ app.services.mocks = app.services.mocks || {};
             // Invalid account
             if (data.login_email === 'invalid@px3.com') {
                 return {
+                    profile: {
+                        email: data.login_email
+                    },
                     notifications: {
-                        message: 'Invalid account'
+                        message: 'Invalid account',
+                        type: 'alert'
                     }
                 }
             }
@@ -52,7 +56,8 @@ app.services.mocks = app.services.mocks || {};
             // Fallback: wrong password
             return {
                 notifications: {
-                    message: 'Invalid Login Credentials'
+                    message: 'Invalid Login Credentials',
+                    type: 'alert'
                 }                
             }
 
@@ -71,8 +76,12 @@ app.services.mocks = app.services.mocks || {};
             // Fallback: password users
             return {
                 loginContext: 'inputPassword',
+                profile: {
+                    email: data.login_email
+                },
                 notifications: {
-                    message: 'Try using your password'
+                    message: 'Try using your password',
+                    type: 'alert'
                 }
             }
         }
