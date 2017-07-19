@@ -19,7 +19,7 @@ app.components.MainArea = function MainArea(props) {
             if (response.state && typeof dispatch === 'function') {
                 // Override notifications
                 if (!response.state.notifications) {
-                    response.state.notifications = null;
+                    response.state.notifications = undefined;
                 }
                 dispatch({
                     state: response.state
@@ -32,11 +32,11 @@ app.components.MainArea = function MainArea(props) {
             console.log('### Service Error ###');
         }
 
-        function clickNextHandler(e) {
+        function clickNextHandler(event) {
             var payload = {};
             var fields = document.querySelectorAll('#loginForm input');
 
-            e.preventDefault();
+            event.preventDefault();
             console.log('NEXT_CLICKED');
 
             fields.forEach(function(field) {
@@ -51,12 +51,24 @@ app.components.MainArea = function MainArea(props) {
             });
         }
 
+        function notYouClickHandler(event) {
+            event.preventDefault();
+            dispatch({
+                state: {
+                   loginContext: 'inputEmail',
+                   profile: undefined,
+                   notifications: undefined
+                }
+            }, true);
+        }
+
         return {
             content: state.content,
             loginContext: state.loginContext,
             profile: state.profile,
             notifications: state.notifications,
-            onClickNext: clickNextHandler
+            onClickNext: clickNextHandler,
+            onNotYouClick: notYouClickHandler
         }
     }
 

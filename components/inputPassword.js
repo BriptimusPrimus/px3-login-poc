@@ -18,7 +18,11 @@ app.components.InputPassword = function InputPassword(props) {
         'div', {
             id: 'inputPassword'
         }, [
-            app.components.Profile(props.profile),
+            app.components.Profile({
+                displayName: props.profile.displayName,
+                email: props.profile.email,
+                onNotYouClick: props.onNotYouClick
+            }),
             dom(
                 'div', {
                     id: 'passwordSection'

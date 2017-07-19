@@ -38,7 +38,10 @@ app.components.Profile = function Profile(props) {
                     ),
                     dom('a', {
                             'class': 'notYouLink',
-                            href: '/'
+                            href: '/',
+                            events: {
+                                click: props && props.onNotYouClick
+                            }
                         }, 
                         'Not you?'
                     )

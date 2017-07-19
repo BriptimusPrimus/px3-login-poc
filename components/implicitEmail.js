@@ -16,7 +16,11 @@ app.components.ImplicitEmail = function ImplicitEmail(props) {
         'div', {
             id: 'implicitEmail'
         }, [
-            app.components.Profile(profile),
+            app.components.Profile({
+                displayName: props.profile.displayName,
+                email: props.profile.email,
+                onNotYouClick: props.onNotYouClick
+            }),
             app.components.BtnNext()
         ]
     );
