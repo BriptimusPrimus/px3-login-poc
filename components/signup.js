@@ -13,6 +13,6 @@ app.components.SignUp = function SignUp(props) {
             href: '/',
             'class': 'button secondary'
         },
-        'Sign Up'
+        props.content.signup
     );
 }

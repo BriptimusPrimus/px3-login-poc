@@ -14,10 +14,10 @@ app.components.LoginSection = function LoginSection(props) {
             id: 'login',
             'class': 'login'
         }, [
-            app.components.Header(),
+            app.components.Header({content: props.content}),
             app.components.Notifications(props.notifications),
             app.components.LoginForm(props),
-            app.components.SignUp()
+            app.components.SignUp({content: props.content})
         ]
     );
 };

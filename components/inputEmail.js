@@ -24,18 +24,19 @@ app.components.InputEmail = function InputEmail(props) {
                         id: 'email',
                         name: 'login_email',
                         type: 'email',
-                        className: 'hasHelp  validateEmpty',
+                        className: 'hasHelp validateEmpty',
                         required: true,
                         autocomplete: 'off',
-                        placeholder: 'Email',
-                        emptyErrorMsg: 'Required',
-                        invalidErrorMsg: 'That email format is not right',
+                        placeholder: props.content.email,
+                        emptyErrorMsg: props.content.emailRequired,
+                        invalidErrorMsg: props.content.emailWrongFormat,
                         value: props.profile && props.profile.email
                     })
                 ]
             ),
             app.components.BtnNext({
-                onClick: props.onClickNext
+                onClick: props.onClickNext,
+                content: props.content.nextButton
             })
         ]
     );

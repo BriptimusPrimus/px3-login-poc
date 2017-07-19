@@ -43,7 +43,7 @@ app.components.Profile = function Profile(props) {
                                 click: props && props.onNotYouClick
                             }
                         }, 
-                        'Not you?'
+                        props.content.notYou
                     )
                 ]
             )

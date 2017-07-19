@@ -7,11 +7,16 @@
 window.app = window.app || {};
 app.components = app.components || {};
 
-app.components.Header = function Header() {
+app.components.Header = function Header(props) {
 
     return app.$$$.dom(
         'header', {}, [
-            app.$$$.dom('p', {'class': 'logo'}, 'Triple Pay Logo')
+            app.$$$.dom('p',
+                {
+                    'class': 'logo'
+                },
+                props.content.logo
+            )
         ]
     );
 }

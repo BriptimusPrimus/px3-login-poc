@@ -21,7 +21,8 @@ app.components.InputPassword = function InputPassword(props) {
             app.components.Profile({
                 displayName: props.profile.displayName,
                 email: props.profile.email,
-                onNotYouClick: props.onNotYouClick
+                onNotYouClick: props.onNotYouClick,
+                content: props.content
             }),
             dom(
                 'div', {
@@ -31,16 +32,17 @@ app.components.InputPassword = function InputPassword(props) {
                         id: 'password',
                         name: 'login_password',
                         type: 'password',
-                        className: 'hasHelp  validateEmpty',
+                        className: 'hasHelp validateEmpty',
                         required: true,
                         autocomplete: 'off',
-                        placeholder: 'Password',
-                        emptyErrorMsg: 'Required'
+                        placeholder: props.content.password,
+                        emptyErrorMsg: props.content.passwordRequired
                     })                    
                 ]
             ),
             app.components.BtnNext({
-                onClick: props.onClickNext
+                onClick: props.onClickNext,
+                content: props.content.loginButton
             })
         ]
     );
