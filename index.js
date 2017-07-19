@@ -13,7 +13,10 @@
             nextButton: 'Next',
             loginButton: 'Login',
             signup: 'Sign Up',
-            notYou: 'Not you?'
+            notYou: 'Not you?',
+            passwordlessHeadline: 'Verifying...',
+            passwordlessMessage: 'Passwordless Login',
+            finishedHeadline: 'Welcome!'
         },
         section: 'login',
         loginContext:  'inputEmail'

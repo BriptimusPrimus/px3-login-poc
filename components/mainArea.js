@@ -64,6 +64,7 @@ app.components.MainArea = function MainArea(props) {
 
         return {
             content: state.content,
+            section: state.section,
             loginContext: state.loginContext,
             profile: state.profile,
             notifications: state.notifications,
@@ -73,7 +74,12 @@ app.components.MainArea = function MainArea(props) {
     }
 
     function render(state) {
-        var LoginSectionProps = mapStateToProps(state);
+        var loginSectionProps = mapStateToProps(state);
+        var basicProps = {
+            content: state.content,
+            section: state.section,
+            profile: state.profile
+        };
 
         return app.$$$.dom(
             'div', {
@@ -81,7 +87,9 @@ app.components.MainArea = function MainArea(props) {
                 'class': 'main',
                 role: 'main'
             }, [
-                app.components.LoginSection(LoginSectionProps),
+                app.components.LoginSection(loginSectionProps),
+                app.components.PasswordlessSection(basicProps),
+                app.components.FinishedSection(basicProps),
                 app.components.Footer()
             ]
         );

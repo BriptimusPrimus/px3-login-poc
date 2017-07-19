@@ -7,6 +7,10 @@ window.app = window.app || {};
 app.components = app.components || {};
 
 app.components.LoginSection = function LoginSection(props) {
+    if (props.section !== 'login') {
+        return;
+    }
+
     props.action = '/login-endpoint';
 
     return app.$$$.dom(

@@ -22,9 +22,15 @@ app.components.ImplicitEmail = function ImplicitEmail(props) {
                 onNotYouClick: props.onNotYouClick,
                 content: props.content
             }),
+            dom('input', {
+                    type: 'hidden',
+                    name: 'login_email',
+                    value: props.profile.email
+                }
+            ),
             app.components.BtnNext({
                 onClick: props.onClickNext,
-                content: props.content.loginButton
+                content: props.content.nextButton
             })
         ]
     );
