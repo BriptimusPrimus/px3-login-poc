@@ -13,13 +13,12 @@ app.components = app.components || {};
 
 app.components.InputPassword = function InputPassword(props) {
     var dom = app.$$$.dom;
-    var profile = props && props.state && props.state.profile;
 
     return dom(
         'div', {
             id: 'inputPassword'
         }, [
-            app.components.Profile(profile),
+            app.components.Profile(props.profile),
             dom(
                 'div', {
                     id: 'passwordSection'
@@ -36,7 +35,9 @@ app.components.InputPassword = function InputPassword(props) {
                     })                    
                 ]
             ),
-            app.components.BtnNext()
+            app.components.BtnNext({
+                onClick: props.onClickNext
+            })
         ]
     );
 }

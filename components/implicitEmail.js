@@ -10,7 +10,7 @@ app.components = app.components || {};
 
 app.components.ImplicitEmail = function ImplicitEmail(props) {
     var dom = app.$$$.dom;
-    var profile = props && props.state && props.state.profile;
+    var profile = props && props.profile;
     
     return dom(
         'div', {

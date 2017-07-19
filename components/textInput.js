@@ -59,7 +59,7 @@ app.components.TextInput = function TextInput(props) {
         );
     }
 
-    function errrorMsg() {
+    function errorMsg() {
         var errorMsgs = [];
 
         if (props.emptyErrorMsg) {
@@ -82,20 +82,27 @@ app.components.TextInput = function TextInput(props) {
             return;
         }
         
-        return dom('div', {
-            id: props.id + 'ErrorMessage',
-            'class': 'errorMessage'
-        }, errorMsgs);
+        return dom(
+            'div', {
+                id: props.id + 'ErrorMessage',
+                'class': 'errorMessage'
+            }, errorMsgs
+        );
     }
 
-    return dom('div', {
-        id: props.name + 'div',
-        'class': 'textInput'
-    }, [
-        dom('div', {'class': 'fieldWrapper'}, [
-            label(),
-            input()
-        ]),
-        errrorMsg()
-    ]);
+    return dom(
+        'div', {
+            id: props.name + 'div',
+            'class': 'textInput'
+        }, [
+            dom('div', {
+                    'class': 'fieldWrapper'
+                }, [
+                    label(),
+                    input()
+                ]
+            ),
+            errorMsg()
+        ]
+    );
 }

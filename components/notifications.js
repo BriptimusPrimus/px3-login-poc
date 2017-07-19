@@ -18,7 +18,8 @@ app.components.Notifications = function Notifications(props) {
                     'class': 'notification notification-' + props.notifications.type,
                     role: 'alert',
                     style: 'background-color: #F00;border: 1px solid #666;'
-                }, props.notifications.message
+                },
+                props.notifications.message
             );
         }
 

@@ -17,8 +17,7 @@ app.components.InputEmail = function InputEmail(props) {
         'div', {
             id: 'inputEmail'
         }, [
-            dom(
-                'div', {
+            dom('div', {
                     id: 'emailSection'
                 }, [
                     app.components.TextInput({

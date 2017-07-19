@@ -1,20 +1,18 @@
 "use strict";
 
-// <form action="/signin" method="post" id="loginForm" autocomplete="off" name="login" novalidate="">
+// <form action="/login-endpoint" method="post" id="loginForm" autocomplete="off" name="login" novalidate="">
 // </form>
 
 window.app = window.app || {};
 app.components = app.components || {};
 
 app.components.LoginForm = function LoginForm(props) {
-    var state = props.state || {};
-
     function showLoginScreen() {
-        if (state.loginContext === 'inputEmail') {
+        if (props.loginContext === 'inputEmail') {
             return app.components.InputEmail(props)
-        } else if (state.loginContext === 'inputPassword') {
+        } else if (props.loginContext === 'inputPassword') {
             return app.components.InputPassword(props)
-        } else if (state.loginContext === 'implicitEmail') {
+        } else if (props.loginContext === 'implicitEmail') {
             return app.components.ImplicitEmail(props)
         }
     }

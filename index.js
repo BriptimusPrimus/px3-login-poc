@@ -18,7 +18,7 @@
     // This function can be invoked conditionally to support server side rendering
     function renderApp() {
         var MainArea = app.components.MainArea &&
-            app.components.MainArea({state: initialState});
+            app.components.MainArea({initialState: initialState});
         if (MainArea) {
             app.$$$.place(
                 MainArea,
